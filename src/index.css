@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-primary: #2D9CDB;
+  --color-accent: #F2994A;
+  --color-neutral-bg: #F5F5F5;
+  --color-text-main: #333333;
+  --color-secondary: #27AE60;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-sans text-text-main bg-white transition-colors duration-300;
+  }
+  .dark body {
+    @apply bg-slate-950 text-slate-100;
+  }
+}
+
+@media print {
+  body.resume-open > *:not(#resume-modal-root) {
+    display: none !important;
+  }
+  
+  body.resume-open #resume-modal-root {
+    position: static !important;
+    padding: 0 !important;
+    background: white !important;
+    display: block !important;
+  }
+  
+  body.resume-open #resume-content {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    max-width: none !important;
+    margin: 0 !important;
+    width: 100% !important;
+  }
+
+  body.resume-open .modal-header-controls {
+    display: none !important;
+  }
+  
+  nav, 
+  #contact button, 
+  #contact .grid,
+  .selection\:bg-primary\/20,
+  header .inline-flex,
+  header .flex-wrap,
+  #contact .absolute {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  section {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+    page-break-inside: avoid;
+  }
+  
+  .bg-neutral-bg, .bg-slate-50, .bg-primary {
+    background: white !important;
+    color: black !important;
+    border: 1px solid #eee !important;
+  }
+  
+  .text-white, .text-indigo-100, .text-indigo-200, .text-primary {
+    color: black !important;
+  }
+  
+  .shadow-sm, .shadow-md, .shadow-lg, .shadow-xl, .shadow-2xl {
+    box-shadow: none !important;
+  }
+  
+  #contact {
+    background: white !important;
+    color: black !important;
+    border-top: 2px solid #333;
+  }
+  
+  #contact h2, #contact p {
+    color: black !important;
+  }
+}
